@@ -4,27 +4,27 @@ import com.eoi.es.entity.Cuenta;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class CuentaService {
+public class CuentaService implements Service{
 
     EntityManager entityManager = Persistence.createEntityManagerFactory("ClientesSucursalesPU").createEntityManager();
 
-    public void createCuenta(Cuenta cuenta) {
+    public void Create(Object cuenta) {
         entityManager.getTransaction().begin();
         entityManager.persist(cuenta);
         entityManager.getTransaction().commit();
     }
 
-    public Cuenta findCuentaById(int id) {
+    public Cuenta findObjectByKey(Object id) {
         return entityManager.find(Cuenta.class, id);
     }
 
-    public void updateCuenta(Cuenta cuenta) {
+    public void Update(Object cuenta) {
         entityManager.getTransaction().begin();
         entityManager.merge(cuenta);
         entityManager.getTransaction().commit();
     }
 
-    public void deleteCuenta(Cuenta cuenta) {
+    public void Delete(Object cuenta) {
         entityManager.getTransaction().begin();
         entityManager.remove(cuenta);
         entityManager.getTransaction().commit();

@@ -6,28 +6,30 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import com.eoi.es.entity.Cliente;
 
+import java.io.Serializable;
 
-public class ClienteService {
+
+public class ClienteService implements Service {
 
     EntityManager entityManager = Persistence.createEntityManagerFactory("ClientesSucursalesPU").createEntityManager();
 
-    public void createCliente(Cliente cliente) {
+    public void Create(Object cliente) {
         entityManager.getTransaction().begin();
         entityManager.persist(cliente);
         entityManager.getTransaction().commit();
     }
 
-    public Cliente findClienteByDNI(String DNI) {
+    public Cliente findObjectByKey(Object DNI) {
         return entityManager.find(Cliente.class, DNI);
     }
 
-    public void updateCliente(Cliente cliente) {
+    public void Update(Object cliente) {
         entityManager.getTransaction().begin();
         entityManager.merge(cliente);
         entityManager.getTransaction().commit();
     }
 
-    public void deleteCliente(Cliente cliente) {
+    public void Delete(Object cliente) {
         entityManager.getTransaction().begin();
         entityManager.remove(cliente);
         entityManager.getTransaction().commit();

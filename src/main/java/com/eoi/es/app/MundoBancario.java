@@ -17,15 +17,9 @@ public class MundoBancario {
         ClienteService clienteService = new ClienteService();
         CuentaService cuentaService = new CuentaService();
 
-        int option;
+        Cliente cliente = clienteService.findObjectByKey("1111X");
 
-        do {
-            printMainMenu();
-            option = sc.nextInt();
-
-            //Cringe
-
-        }while (option != 0);
+        System.out.println(cliente);
     }
 
     public static void printMainMenu(){

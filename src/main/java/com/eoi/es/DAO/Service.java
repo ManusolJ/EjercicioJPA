@@ -1,6 +1,6 @@
-package com.eoi.es.service;
+package com.eoi.es.DAO;
 
-import com.eoi.es.entity.Cliente;
+import java.util.List;
 
 public interface Service {
 
@@ -12,4 +12,5 @@ public interface Service {
 
     public void Delete(Object o);
 
+    public List<?> findAll();
 }

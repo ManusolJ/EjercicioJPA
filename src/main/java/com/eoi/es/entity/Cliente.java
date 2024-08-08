@@ -7,7 +7,6 @@ import java.util.List;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String DNI;
 
     @Column(name = "nombreCliente")

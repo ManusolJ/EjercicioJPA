@@ -8,7 +8,7 @@ import java.util.List;
 public class Banco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idBanco;
 
     @Column(name = "nombreBanco")

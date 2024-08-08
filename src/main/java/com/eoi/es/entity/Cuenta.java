@@ -8,9 +8,9 @@ public class Cuenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int idCuenta;
 
-    @Column()
+    @Column(name = "saldo")
     private double saldo;
 
     @ManyToOne
@@ -21,12 +21,12 @@ public class Cuenta {
     @JoinColumn(name = "idBanco", referencedColumnName = "idBanco")
     private Banco banco;
 
-    public int getId() {
-        return id;
+    public int getIdCuenta() {
+        return idCuenta;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCuenta(int idCuenta) {
+        this.idCuenta = idCuenta;
     }
 
     public double getSaldo() {
@@ -51,5 +51,10 @@ public class Cuenta {
 
     public void setBanco(Banco banco) {
         this.banco = banco;
+    }
+
+    @Override
+    public String toString() {
+        return idCuenta + " | " + getCliente().getNombreCliente() + " | " + getBanco().getNombreBanco();
     }
 }
